@@ -16,17 +16,28 @@ export class Page extends Component {
 
   updateData(){
     this.setState({itemId:this.props.params.id,itemClass:this.props.params.nameClass})
+    this.checkLogin()
   }
 
   OnItemSelected=(id,nameClass)=>{
     this.props.navigate(`/${nameClass}/${id}`)
+    this.checkLogin()
   }
   
   componentDidCatch(){
     this.setState({hasError:true})
   }
 
-  
+  checkLogin(){
+    if(!this.props.login){
+      this.props.navigate(`/login`)
+    }
+  }
+
+  componentDidMount(){
+    this.checkLogin()
+  }
+
   componentDidUpdate(prevProps){
     if (prevProps !== this.props) {
       this.updateData()

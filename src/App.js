@@ -1,22 +1,23 @@
 import React,{Component} from 'react';
 import './styles/index.css';
-import RandomPlanet from './components/RandomPlanet';
-import Header from './components/Header';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import { ClassProvider } from './components/ClassContext';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Page from './components/Page';
-
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
-
-import { ClassProvider } from './components/ClassContext';
 import Home from './components/Home';
+import LoginPage from './components/LoginPage';
+import RandomPlanet from './components/RandomPlanet';
+import Header from './components/Header';
 
 class App extends Component {
   state={
     hasError:false,
-    itemClass:"characters" //planets starships characters
+    itemClass:"characters", //planets starships characters
+    login:false,
+    userDate:[["admin","admin"]]
   }
   componentDidCatch(){
     this.setState({hasError:true})
@@ -26,6 +27,21 @@ class App extends Component {
     this.setState({itemClass:nameClass})
   }
 
+  OnAccess=(params)=>{
+    this.setState({login:params})
+    if(params){
+      this.props.navigate(`home`)
+    }
+    console.log(`Access ${params}`)
+  }
+
+  OnCheckData=(login,password)=>{
+    this.state.userDate.forEach((element) => 
+      {if(element[0]==login && element[0]==password){
+        this.OnAccess(true)
+      }}
+    );
+  }
  
   render(){
     if(this.state.hasError){
@@ -54,6 +70,9 @@ class App extends Component {
         error: {
           main:'#F28444',
         },
+        dark:{
+          main: '#0A1929',
+        }
         
       },
     });
@@ -79,8 +98,8 @@ class App extends Component {
       <Routes>
         <Route path="/">
           <Route index element={<Home/>}></Route>
-
-          <Route path=":nameClass/:id" exact element={<Page nameClass={this.state.itemClass} />}></Route>
+          <Route path="login" element={<LoginPage OnAccess={this.OnAccess} OnCheckData={this.OnCheckData} login={this.state.login}/>}></Route>
+          <Route path=":nameClass/:id" exact element={<Page nameClass={this.state.itemClass}  login={this.state.login} />}></Route>
 
           <Route path="*" element={<Home/>} />
         </Route>
