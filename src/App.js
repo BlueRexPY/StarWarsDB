@@ -80,10 +80,6 @@ class App extends Component {
         <Route path="/">
           <Route index element={<Home/>}></Route>
 
-          <Route path="planets/" exact element={<Page nameClass={this.state.itemClass}/>}></Route>
-          <Route path="starships/" exact element={<Page nameClass={this.state.itemClass}/>}></Route>
-          <Route path="characters/" exact element={<Page nameClass={this.state.itemClass}/>}></Route>
-
           <Route path=":nameClass/:id" exact element={<Page nameClass={this.state.itemClass} />}></Route>
 
           <Route path="*" element={<Home/>} />
