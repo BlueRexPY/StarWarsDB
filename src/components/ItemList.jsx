@@ -65,7 +65,7 @@ class ItemList extends React.Component {
     return arr.map(({id,name}) =>{
       return(
           <>
-            <ListItem button key={id} onClick={ () => this.props.OnItemSelected(id)}>
+            <ListItem button key={id} onClick={ () => this.props.OnItemSelected(id,this.props.itemClass)}>
               <ListItemText primary={name} />
             </ListItem>
             <Divider />

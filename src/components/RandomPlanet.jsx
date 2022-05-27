@@ -39,9 +39,9 @@ class RandomPlanet extends React.Component{
   }
 
   updateData=()=>{
-    const id = Math.floor(Math.random() * 10)+3
+    const id = Math.floor(Math.random() * 10)
     this.SwapiService
-    .getPlanet(id)
+    .getPlanet(id+2)
     .then(this.onPlanetLoaded)
     .catch(this.onError)
   }

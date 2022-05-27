@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from "react-router-dom";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
@@ -23,12 +23,12 @@ const Header = (props) => {
           onChange={handleChange}
           textColor="secondary"
           indicatorColor="secondary"
-          aria-label="secondary tabs example"
           centered
         >
-          <Tab value="People" label="People" onClick={ () =>updateDate("characters")}/>
-          <Tab value="Planets" label="Planets" onClick={ () => updateDate("planets")}/>
-          <Tab value="Starships" label="Starships" onClick={ () => updateDate("starships")}/>
+          <Link className='Tabs' to="characters/1"><Tab value="People" label="People" onClick={ () =>updateDate("characters")}/></Link>
+          <Link className='Tabs' to="planets/1"><Tab value="Planets" label="Planets" onClick={ () => updateDate("planets")}/></Link>
+          <Link className='Tabs' to="starships/1">
+          <Tab value="Starships" label="Starships" onClick={ () => updateDate("starships")}/></Link>
         </Tabs>
       </AppBar>
   </Box>

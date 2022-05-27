@@ -19,7 +19,8 @@ class itemDetails extends Component {
 
   state={
     item:{},
-    loading:false 
+    loading:false,
+    error: false
   }
 
   componentDidMount(){
@@ -30,6 +31,7 @@ class itemDetails extends Component {
       this.updateItem()
     }
   }
+  
   updateItem(){
     const itemId = this.props.itemId
     this.setState({loading:true})
@@ -82,7 +84,7 @@ class itemDetails extends Component {
                {`Length:	${this.state.item.length}`}
            </Typography>
            <Typography variant="body1" color="text.secondary" component="div">
-               {`Cost:	${this.state.item.costIncredits}`}
+               {`Cost:	${this.state.item.cost_in_credits}`}
            </Typography>
           </Stack>
         )

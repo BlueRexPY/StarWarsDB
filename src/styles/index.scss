@@ -31,4 +31,13 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #515151;
 }
-
+.Tabs{
+  text-decoration: none;
+  color: #878787;
+  transition: 0.3s;
+}
+.Tabs:hover{
+ color: #7b4be3;
+ transition: 0.3s;
+ transform: scale(1.1);
+}

@@ -7,7 +7,11 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Page from './components/Page';
+
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+
 import { ClassProvider } from './components/ClassContext';
+import Home from './components/Home';
 
 class App extends Component {
   state={
@@ -18,7 +22,7 @@ class App extends Component {
     this.setState({hasError:true})
   }
 
-  OnClassSelected=(nameClass)=>{
+  OnClassSelectedTabs=(nameClass)=>{
     this.setState({itemClass:nameClass})
   }
 
@@ -56,8 +60,10 @@ class App extends Component {
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
+      <Router>
       <ClassProvider value={this.state.itemClass}>
-      <Header OnClassSelected={this.OnClassSelected}></Header>
+      
+      <Header OnClassSelected={this.OnClassSelectedTabs}></Header>
       <div className='margin'>
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={6}
@@ -70,8 +76,25 @@ class App extends Component {
           </Grid>
         </Box>
       </div>
-      <Page></Page>
+      <Routes>
+        <Route path="/">
+          <Route index element={<Home/>}></Route>
+
+          <Route path="planets/" exact element={<Page nameClass={this.state.itemClass}/>}></Route>
+          <Route path="starships/" exact element={<Page nameClass={this.state.itemClass}/>}></Route>
+          <Route path="characters/" exact element={<Page nameClass={this.state.itemClass}/>}></Route>
+
+          <Route path=":nameClass/:id" exact element={<Page nameClass={this.state.itemClass} />}></Route>
+
+          <Route path="*" element={<Home/>} />
+        </Route>
+          
+        </Routes>
+      
+   
+      
       </ClassProvider>
+      </Router>
       </ThemeProvider>
     </div>
   );
