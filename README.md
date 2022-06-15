@@ -1,7 +1,7 @@
 # StarWarsDB
 
 ### Description 
-StarWarsDB - created with fetch, MUI, react-router
+StarWarsDB - created with fetch, MUI, react-router, sass
 
 API application to display data about star wars
 
