@@ -2,7 +2,12 @@
 # StarWarsDB
 
 ### Description 
-StarWarsDB - created with fetch, MUI, react-router, sass
+StarWarsDB - created with:<br>
+<img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB"> 
+<img src="https://img.shields.io/badge/api-%2320232a.svg?style=for-the-badge&logo=api&logoColor=%2361DAFB"> 
+<img src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white"> 
+<img src="https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white"> 
+<img src="https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white"> 
 
 API application to display data about star wars
 
