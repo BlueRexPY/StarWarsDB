@@ -11,7 +11,11 @@ StarWarsDB - created with:<br>
 
 API application to display data about star wars
 
-link on video 
+link on video and site 
+
+<a target="_blank" href="https://milk-shake-creator-9axjilf8f-bluerexpy.vercel.app/">
+    <img src="https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white"/>
+</a>
 
 <a target="_blank" href="https://youtu.be/TMMOkiXpLrs">
     <img src="https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white"/>
