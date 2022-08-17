@@ -11,7 +11,7 @@ StarWarsDB - created with:<br>
 
 API application to display data about star wars
 
-link on video and site 
+link on video and site <br>
 <a target="_blank" href="https://star-wars-db-zeta.vercel.app/">
     <img src="https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white"/>
 </a>
